@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Intelig&#234;ncia Regulat&#243;ria Farmac&#234;utica</title>
+
+<!-- Open Graph / Social sharing preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Intelig&#234;ncia Regulat&#243;ria Farmac&#234;utica">
+<meta property="og:description" content="Monitoramento automatizado de 19 fontes governamentais para o setor farmac&#234;utico brasileiro. 4 fontes operacionais, integra&#231;&#227;o entre bases comprovada.">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intelig&#234;ncia Regulat&#243;ria Farmac&#234;utica">
+<meta name="twitter:description" content="Monitoramento automatizado de 19 fontes governamentais para o setor farmac&#234;utico brasileiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* === Reset & Base === */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #374E55;
+    background: #FFFFFF;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* === Layout === */
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* === Header === */
+  .page-header {
+    background: #2B3A3F;
+    padding: 48px 0 40px;
+    margin-bottom: 48px;
+  }
+
+  .page-header .page-wrapper {
+    text-align: left;
+  }
+
+  .page-header h1 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .page-header .subtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* === Section Headers === */
+  .section-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2B3A3F;
+    line-height: 1.3;
+    margin-bottom: 16px;
+    padding-top: 8px;
+  }
+
+  .subsection-header {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2B3A3F;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  /* === Section Spacing === */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid #E8E6E1;
+    margin: 48px 0;
+  }
+
+  /* === Body Text === */
+  p {
+    margin-bottom: 16px;
+  }
+
+  strong {
+    font-weight: 600;
+    color: #2B3A3F;
+  }
+
+  /* === Lists === */
+  ul, ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  li strong {
+    color: #2B3A3F;
+  }
+
+  /* === Problem List (bullet with dash prefix) === */
+  .problem-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .problem-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .problem-list li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: #80796B;
+  }
+
+  /* === Layer Cards (Camada 1, 2, 3) === */
+  .layer-card {
+    background: #F7F7F5;
+    border: 1px solid #E8E6E1;
+    border-left: 4px solid #374E55;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+
+  .layer-card .subsection-header {
+    margin-bottom: 12px;
+  }
+
+  .layer-card p {
+    margin-bottom: 12px;
+  }
+
+  .layer-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* === Chain Cards (Cadeia 1-4) === */
+  .chain-group {
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  .chain-item {
+    margin-bottom: 16px;
+  }
+
+  .chain-item .chain-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #2B3A3F;
+    margin-bottom: 4px;
+  }
+
+  .chain-item .chain-flow {
+    font-size: 0.85rem;
+    color: #374E55;
+    line-height: 1.6;
+    padding-left: 4px;
+  }
+
+  .chain-flow .arrow {
+    color: #80796B;
+    margin: 0 4px;
+  }
+
+  .chain-flow .node {
+    display: inline;
+  }
+
+  /* === Surface Cards (Sandbox + Atlas, side by side) === */
+  .surfaces-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .surface-card {
+    background: #FFFFFF;
+    border: 1px solid #E8E6E1;
+    border-top: 4px solid #374E55;
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .surface-card .subsection-header {
+    margin-bottom: 12px;
+  }
+
+  .surface-card p {
+    margin-bottom: 12px;
+  }
+
+  .surface-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .surface-card ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+
+  .surface-card li {
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* === Callout Box (Workbench Principle) === */
+  .callout-box {
+    background: #F7F7F5;
+    border: 1px solid #E8E6E1;
+    border-radius: 8px;
+    padding: 24px 32px;
+    text-align: center;
+    margin: 32px auto;
+    max-width: 740px;
+  }
+
+  .callout-box p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #374E55;
+  }
+
+  .callout-box strong {
+    color: #2B3A3F;
+  }
+
+  .callout-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #80796B;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* === Tables === */
+  .data-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 24px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  thead th {
+    background: #2B3A3F;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  thead th:first-child {
+    border-radius: 8px 0 0 0;
+  }
+
+  thead th:last-child {
+    border-radius: 0 8px 0 0;
+  }
+
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #EDEBE8;
+    color: #374E55;
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #F7F7F5;
+  }
+
+  tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 8px;
+  }
+
+  tbody tr:last-child td:last-child {
+    border-radius: 0 0 8px 0;
+  }
+
+  /* Column widths for source table */
+  .source-table th:nth-child(1),
+  .source-table td:nth-child(1) {
+    width: 32px;
+    text-align: center;
+  }
+
+  .source-table th:nth-child(5),
+  .source-table td:nth-child(5) {
+    width: 120px;
+    text-align: center;
+  }
+
+  /* === Badges === */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .badge-active {
+    background: #E8F5E9;
+    color: #2E7D4A;
+  }
+
+  .badge-integration {
+    background: #FFF3E0;
+    color: #8B6914;
+  }
+
+  .badge-mapped {
+    background: #E3F0F7;
+    color: #1A6B8A;
+  }
+
+  /* === Tier Classification === */
+  .tier-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 16px;
+  }
+
+  .tier-list li {
+    padding-left: 0;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  /* === KPI Grid === */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .kpi-card {
+    background: #FFFFFF;
+    border: 1px solid #E8E6E1;
+    border-top: 3px solid #374E55;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .kpi-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2B3A3F;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .kpi-label {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #80796B;
+    line-height: 1.3;
+  }
+
+  /* === Metrics Table (simplified) === */
+  .metrics-table {
+    margin-bottom: 24px;
+  }
+
+  .metrics-table td:nth-child(2) {
+    font-weight: 600;
+    color: #2B3A3F;
+  }
+
+  /* === Persona Table === */
+  .persona-table th:first-child,
+  .persona-table td:first-child {
+    width: 200px;
+    white-space: nowrap;
+  }
+
+  /* === Delivery list === */
+  .delivery-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .delivery-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .delivery-list li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: #80796B;
+  }
+
+  /* === Footer === */
+  .page-footer {
+    border-top: 1px solid #E8E6E1;
+    padding: 24px 0 48px;
+    margin-top: 48px;
+  }
+
+  .page-footer p {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #80796B;
+    line-height: 1.4;
+    margin-bottom: 0;
+  }
+
+  /* === Print Styles === */
+  @media print {
+    @page {
+      margin: 2.5cm;
+      size: A4;
+    }
+
+    body {
+      font-size: 10pt;
+      color: #374E55;
+      background: white;
+    }
+
+    .page-wrapper {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .page-header {
+      margin-bottom: 24pt;
+      padding: 24pt 24pt 20pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page-header h1 {
+      font-size: 14pt;
+    }
+
+    .page-header .subtitle {
+      font-size: 10pt;
+    }
+
+    .section {
+      margin-bottom: 24pt;
+    }
+
+    .section-divider {
+      margin: 24pt 0;
+    }
+
+    .section-header {
+      font-size: 12pt;
+      page-break-after: avoid;
+    }
+
+    .subsection-header {
+      font-size: 11pt;
+      page-break-after: avoid;
+    }
+
+    .layer-card,
+    .surface-card,
+    .callout-box,
+    .kpi-card {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      page-break-inside: avoid;
+    }
+
+    .surfaces-grid {
+      page-break-inside: avoid;
+    }
+
+    table {
+      page-break-inside: avoid;
+      font-size: 8pt;
+    }
+
+    thead th {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-size: 8pt;
+    }
+
+    tbody td {
+      font-size: 8pt;
+      padding: 6px 8px;
+    }
+
+    .badge {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      font-size: 7pt;
+    }
+
+    .kpi-grid {
+      page-break-inside: avoid;
+    }
+
+    .kpi-value {
+      font-size: 14pt;
+    }
+
+    .kpi-label {
+      font-size: 8pt;
+    }
+
+    .page-footer p {
+      font-size: 8pt;
+    }
+
+    /* Avoid widows/orphans */
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+
+    /* Force page break before major sections if needed */
+    .section.page-break-before {
+      page-break-before: always;
+    }
+  }
+
+  /* === Responsive fallback === */
+  @media (max-width: 640px) {
+    .surfaces-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .source-table th:nth-child(4),
+    .source-table td:nth-child(4) {
+      max-width: 160px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="page-header">
+  <div class="page-wrapper">
+    <h1>Intelig&#234;ncia Regulat&#243;ria Farmac&#234;utica</h1>
+    <p class="subtitle">Monitoramento automatizado de dados governamentais para o setor farmac&#234;utico brasileiro &mdash; 4 fontes operacionais, integra&#231;&#227;o entre bases comprovada</p>
+  </div>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- ====== O PROBLEMA ====== -->
+  <section class="section">
+    <h2 class="section-header">O Problema</h2>
+
+    <p>O setor farmac&#234;utico brasileiro opera sob uma das estruturas regulat&#243;rias mais complexas do mundo. Pre&#231;o de medicamentos, aprova&#231;&#245;es de registro, incorpora&#231;&#245;es ao SUS, procedimentos cobertos pelo sistema p&#250;blico &mdash; tudo depende de dados dispersos em <strong>19 fontes governamentais diferentes</strong>, cada uma com seu formato, frequ&#234;ncia de atualiza&#231;&#227;o e particularidades t&#233;cnicas.</p>
+
+    <p>Hoje, profissionais de assuntos regulat&#243;rios, HTA e intelig&#234;ncia de mercado enfrentam:</p>
+
+    <ul class="problem-list">
+      <li><strong>Fragmenta&#231;&#227;o</strong> &mdash; Dados cr&#237;ticos espalhados entre ANVISA, CMED, DOU, CONITEC, DataSUS, ANS e outros. Nenhum sistema conecta essas fontes. Cada equipe mant&#233;m sua pr&#243;pria cole&#231;&#227;o de planilhas.</li>
+      <li><strong>Trabalho manual repetitivo</strong> &mdash; Equipes inteiras dedicam horas semanais baixando tabelas, comparando vers&#245;es, lendo publica&#231;&#245;es do Di&#225;rio Oficial. O dado &#233; p&#250;blico; o custo de us&#225;-lo &#233; privado.</li>
+      <li><strong>Atraso na rea&#231;&#227;o</strong> &mdash; Mudan&#231;as regulat&#243;rias acontecem (pre&#231;o alterado, medicamento incorporado ao SUS, novo procedimento SIGTAP publicado) e levam dias ou semanas para serem detectadas por quem deveria saber primeiro.</li>
+      <li><strong>Aus&#234;ncia de contexto</strong> &mdash; Saber que um pre&#231;o mudou n&#227;o basta. Por que mudou? Qual a resolu&#231;&#227;o que fundamenta? Esse medicamento est&#225; listado no CONITEC? Est&#225; coberto pelo SIGTAP? A informa&#231;&#227;o isolada n&#227;o &#233; intelig&#234;ncia.</li>
+    </ul>
+
+    <p>O custo n&#227;o &#233; apenas operacional. &#201; <strong>intelig&#234;ncia perdida</strong> &mdash; decis&#245;es tomadas com informa&#231;&#227;o incompleta, atrasada ou descontextualizada.</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== A SOLUCAO ====== -->
+  <section class="section">
+    <h2 class="section-header">A Solu&#231;&#227;o</h2>
+
+    <p>Uma plataforma de intelig&#234;ncia regulat&#243;ria que opera em <strong>tr&#234;s camadas progressivas</strong>, transformando dados brutos de fontes governamentais em intelig&#234;ncia acion&#225;vel.</p>
+
+    <p>O valor n&#227;o est&#225; em acessar uma &#250;nica fonte. Est&#225; nas <strong>rela&#231;&#245;es entre as fontes</strong> &mdash; as cadeias de intelig&#234;ncia que nenhuma fonte sozinha oferece e que nenhuma equipe consegue manter manualmente.</p>
+
+    <!-- Camada 1 -->
+    <div class="layer-card">
+      <h3 class="subsection-header">Camada 1 &mdash; Monitorar <span style="font-size:0.8rem;font-weight:400;color:#2E7D4A;">[FUNCIONA HOJE]</span></h3>
+      <p>Acompanhamento automatizado de quatro fontes governamentais operacionais. A plataforma detecta mudan&#231;as em pre&#231;os, novos registros de medicamentos, decis&#245;es de incorpora&#231;&#227;o ao SUS e atualiza&#231;&#245;es de procedimentos &mdash; e gera alertas em tempo &#250;til, n&#227;o dias depois.</p>
+      <p>Cada fonte segue o mesmo pipeline padronizado: download, normaliza&#231;&#227;o, armazenamento versionado, compara&#231;&#227;o entre vers&#245;es e alertas. Quando a CMED publica uma nova tabela de pre&#231;os, a plataforma identifica automaticamente cada medicamento novo, cada pre&#231;o alterado e cada produto removido. O mesmo para ANVISA, CONITEC e SIGTAP.</p>
+      <p><strong>Fontes ativas:</strong> CMED (tabela de pre&#231;os) &mdash; ANVISA Dados Abertos (37.391 registros) &mdash; CONITEC (1.133 decis&#245;es, 2012&ndash;2025) &mdash; SIGTAP (4.977 procedimentos SUS)</p>
+    </div>
+
+    <!-- Camada 2 -->
+    <div class="layer-card">
+      <h3 class="subsection-header">Camada 2 &mdash; Entender <span style="font-size:0.8rem;font-weight:400;color:#2E7D4A;">[RESOLU&#199;&#195;O DE ENTIDADES FUNCIONA HOJE]</span></h3>
+      <p>O diferencial da plataforma: <strong>cruzar, correlacionar e contextualizar</strong> dados de m&#250;ltiplas fontes. Isso n&#227;o &#233; planejado &mdash; est&#225; funcionando. Mapeamos os caminhos de jun&#231;&#227;o entre todas as quatro bases operacionais e medimos a cobertura real.</p>
+      <p>A integra&#231;&#227;o entre fontes j&#225; produz resultados concretos:</p>
+      <ul>
+        <li><strong>CMED &#8596; ANVISA:</strong> 99,9% de cobertura (27.122 de 27.155 medicamentos) por chave direta de registro</li>
+        <li><strong>CONITEC &#8594; CMED:</strong> 85,0% de cobertura (599 de 705 decis&#245;es sobre medicamentos) por correspond&#234;ncia de subst&#226;ncia ativa</li>
+        <li><strong>SIGTAP &#8594; CMED:</strong> 93,1% de cobertura (375 de 403 procedimentos de medicamentos) por correspond&#234;ncia de subst&#226;ncia ativa</li>
+      </ul>
+      <p>Quando um medicamento aparece numa decis&#227;o CONITEC, sabemos imediatamente seu pre&#231;o atual na tabela CMED, seu status de registro na ANVISA e se h&#225; procedimento SIGTAP associado. N&#227;o &#233; uma estimativa &mdash; &#233; um join com taxa de acerto mensur&#225;vel.</p>
+      <p>Essa capacidade se aprofunda em <strong>quatro cadeias de intelig&#234;ncia</strong> &mdash; as tr&#234;s primeiras j&#225; parcialmente operacionais, a quarta planejada para integra&#231;&#227;o futura com DataSUS:</p>
+
+      <div class="chain-group">
+        <div class="chain-item">
+          <div class="chain-title">Cadeia 1 &mdash; Ciclo de vida do medicamento</div>
+          <div class="chain-flow">
+            <span class="node">ANVISA (registro)</span><span class="arrow">&rarr;</span><span class="node">CMED (pre&#231;o)</span><span class="arrow">&rarr;</span><span class="node">CONITEC (incorpora&#231;&#227;o SUS)</span><span class="arrow">&rarr;</span><span class="node">SIGTAP (procedimento)</span><span class="arrow">&rarr;</span><span class="node">DOU (base legal) [planejado]</span>
+          </div>
+        </div>
+
+        <div class="chain-item">
+          <div class="chain-title">Cadeia 2 &mdash; Intelig&#234;ncia de pre&#231;os</div>
+          <div class="chain-flow">
+            <span class="node">Mudan&#231;a na CMED</span><span class="arrow">&rarr;</span><span class="node">Verifica&#231;&#227;o ANVISA (registro ativo?)</span><span class="arrow">&rarr;</span><span class="node">Hist&#243;rico CONITEC (incorporado ao SUS?)</span><span class="arrow">&rarr;</span><span class="node">Base legal no DOU [planejado]</span>
+          </div>
+        </div>
+
+        <div class="chain-item">
+          <div class="chain-title">Cadeia 3 &mdash; Risco regulat&#243;rio</div>
+          <div class="chain-flow">
+            <span class="node">Decis&#227;o CONITEC publicada</span><span class="arrow">&rarr;</span><span class="node">Impacto em pre&#231;os CMED</span><span class="arrow">&rarr;</span><span class="node">Atualiza&#231;&#227;o SIGTAP esperada</span><span class="arrow">&rarr;</span><span class="node">Alerta para equipes de acesso</span>
+          </div>
+        </div>
+
+        <div class="chain-item">
+          <div class="chain-title">Cadeia 4 &mdash; Evid&#234;ncia de mundo real [planejado]</div>
+          <div class="chain-flow">
+            <span class="node">DataSUS (dados brutos)</span><span class="arrow">&rarr;</span><span class="node">Limpeza e estrutura&#231;&#227;o</span><span class="arrow">&rarr;</span><span class="node">Cruzamento com CMED + SIGTAP + CNES</span><span class="arrow">&rarr;</span><span class="node">Datasets prontos para HTA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Camada 3 -->
+    <div class="layer-card">
+      <h3 class="subsection-header">Camada 3 &mdash; Agir <span style="font-size:0.8rem;font-weight:400;color:#8B6914;">[PROT&#211;TIPO EM DESENVOLVIMENTO]</span></h3>
+      <p>A entrega ao cliente acontece em <strong>duas superf&#237;cies integradas:</strong></p>
+    </div>
+
+    <!-- Two surfaces side by side -->
+    <div class="surfaces-grid">
+      <div class="surface-card">
+        <h3 class="subsection-header">Sandbox de Pesquisa</h3>
+        <p>Ambiente interativo para explorar e combinar datasets de m&#250;ltiplas fontes. O conceito &#233; uma <strong>tela visual de dados</strong>: cada fonte aparece como um card com seus campos, e o usu&#225;rio conecta os cards para construir o dataset combinado que precisa &mdash; sem escrever c&#243;digo, sem entender o esquema interno de cada base.</p>
+        <ul>
+          <li>Filtros por classe terap&#234;utica, per&#237;odo, tipo de decis&#227;o, procedimento</li>
+          <li>Combina&#231;&#227;o visual de datasets (estilo Model View do Power BI)</li>
+          <li>Exporta&#231;&#227;o em CSV, Parquet ou Excel</li>
+          <li>Dados do SIGTAP e CONITEC estruturados para estudos de custo-efetividade</li>
+          <li>O pesquisador trabalha com dados j&#225; preparados &mdash; sem etapa de limpeza</li>
+        </ul>
+      </div>
+
+      <div class="surface-card">
+        <h3 class="subsection-header">Atlas de Dados</h3>
+        <p>Dicion&#225;rio de dados real, com metadados em n&#237;vel de campo e scorecards de qualidade para cada fonte integrada. N&#227;o &#233; um brochure &mdash; &#233; documenta&#231;&#227;o operacional:</p>
+        <ul>
+          <li>Dicion&#225;rio campo a campo (tipo, descri&#231;&#227;o, valores poss&#237;veis, exemplos reais)</li>
+          <li>Scorecard de qualidade por fonte (completude, acur&#225;cia, cobertura temporal)</li>
+          <li>Mapa de relacionamentos: quais campos conectam quais bases e com qual taxa de cobertura</li>
+          <li>Linhagem de dados (origem, transforma&#231;&#245;es aplicadas, vers&#227;o do pipeline)</li>
+          <li>Limita&#231;&#245;es conhecidas e lacunas documentadas honestamente</li>
+          <li>Hist&#243;rico de mudan&#231;as de esquema (colunas adicionadas, removidas, renomeadas)</li>
+        </ul>
+        <p>Em submiss&#245;es regulat&#243;rias e estudos acad&#234;micos, a proced&#234;ncia dos dados &#233; t&#227;o importante quanto os dados. Sem documenta&#231;&#227;o, n&#250;meros s&#227;o afirma&#231;&#245;es. Com o Atlas, s&#227;o evid&#234;ncia.</p>
+      </div>
+    </div>
+
+    <!-- Workbench Principle Callout -->
+    <div class="callout-box">
+      <span class="callout-label">Princ&#237;pio da bancada de trabalho</span>
+      <p>A plataforma entrega todos os insumos necess&#225;rios para a decis&#227;o, mas n&#227;o faz a decis&#227;o. <strong>Dados limpos at&#233; a porta.</strong> O que acontece depois &#233; dom&#237;nio do especialista.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== A METODOLOGIA ====== -->
+  <section class="section">
+    <h2 class="section-header">A Metodologia</h2>
+
+    <p>Antes de escrever a primeira linha de c&#243;digo, investimos em <strong>entender o ecossistema</strong>. N&#227;o come&#231;amos pela tecnologia &mdash; come&#231;amos pelos dados.</p>
+
+    <ul class="problem-list">
+      <li><strong>19 fontes governamentais catalogadas em 9 dimens&#245;es</strong> &mdash; Cada fonte foi perfilada individualmente: formato, frequ&#234;ncia de atualiza&#231;&#227;o, acessibilidade t&#233;cnica, qualidade dos dados, cobertura temporal, volume, chaves de jun&#231;&#227;o com outras fontes, limita&#231;&#245;es conhecidas e valor estrat&#233;gico. O resultado &#233; uma matriz de integra&#231;&#227;o propriet&#225;ria que prioriza o que construir e em que ordem.</li>
+      <li><strong>5 submiss&#245;es reais ao CONITEC dissecadas</strong> &mdash; Para entender como dados s&#227;o realmente usados em decis&#245;es de incorpora&#231;&#227;o ao SUS, analisamos dossi&#234;s completos. N&#227;o estudamos a teoria &mdash; estudamos o que acontece na pr&#225;tica: quais dados s&#227;o citados, quais fontes s&#227;o cruzadas, onde h&#225; lacunas.</li>
+      <li><strong>Engenharia reversa do ecossistema regulat&#243;rio</strong> &mdash; Uma s&#233;rie de 4 documentos mapeando o ciclo regulat&#243;rio completo: desde a publica&#231;&#227;o no DOU at&#233; o procedimento no SIGTAP. Cada etapa documentada com seus atores, fluxos, tempos e pontos de conex&#227;o.</li>
+      <li><strong>Mapa de relacionamentos propriet&#225;rio</strong> &mdash; O produto final dessa pesquisa: um mapa verificado empiricamente dos caminhos de jun&#231;&#227;o entre fontes, com taxas de cobertura reais. N&#227;o &#233; um diagrama conceitual &mdash; &#233; medido com dados reais.</li>
+    </ul>
+
+    <p>Essa metodologia &#233; o que diferencia uma agrega&#231;&#227;o de tabelas de uma plataforma de intelig&#234;ncia. Qualquer pessoa pode baixar a tabela CMED. A quest&#227;o &#233; saber <strong>como ela se conecta</strong> &#224;s outras 18 fontes &mdash; e ter constru&#237;do a infraestrutura para manter essas conex&#245;es vivas.</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== O QUE JA FUNCIONA ====== -->
+  <section class="section">
+    <h2 class="section-header">O que j&#225; funciona</h2>
+
+    <p>Quatro fontes est&#227;o operacionais com pipelines autom&#225;ticos de download, normaliza&#231;&#227;o e armazenamento versionado. Os n&#250;meros abaixo s&#227;o reais.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">4</div>
+        <div class="kpi-label">Fontes governamentais operacionais</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">27.155</div>
+        <div class="kpi-label">Medicamentos rastreados (CMED)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">37.391</div>
+        <div class="kpi-label">Registros ANVISA integrados</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">1.133</div>
+        <div class="kpi-label">Decis&#245;es CONITEC (2012&ndash;2025)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">4.977</div>
+        <div class="kpi-label">Procedimentos SIGTAP mapeados</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">13 meses</div>
+        <div class="kpi-label">Hist&#243;rico cont&#237;nuo CMED</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-header">Integra&#231;&#227;o entre fontes</h3>
+
+    <p>Esta &#233; a parte que distingue a plataforma de um simples agregador de dados. As taxas de cobertura abaixo foram medidas com dados reais &mdash; n&#227;o s&#227;o estimativas.</p>
+
+    <div class="data-table-wrapper">
+      <table class="metrics-table">
+        <thead>
+          <tr>
+            <th>Conex&#227;o entre fontes</th>
+            <th>M&#233;todo de jun&#231;&#227;o</th>
+            <th>Registros correspondidos</th>
+            <th>Cobertura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CMED &#8596; ANVISA Dados Abertos</td>
+            <td>Chave direta de registro</td>
+            <td>27.122 de 27.155</td>
+            <td><strong>99,9%</strong></td>
+          </tr>
+          <tr>
+            <td>CONITEC &#8594; CMED</td>
+            <td>Nome da subst&#226;ncia ativa</td>
+            <td>599 de 705 decis&#245;es</td>
+            <td><strong>85,0%</strong></td>
+          </tr>
+          <tr>
+            <td>SIGTAP &#8594; CMED</td>
+            <td>Nome da subst&#226;ncia ativa</td>
+            <td>375 de 403 procedimentos</td>
+            <td><strong>93,1%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>O que a plataforma entrega hoje, al&#233;m dos dados brutos:</p>
+
+    <ul class="delivery-list">
+      <li><strong>Detec&#231;&#227;o autom&#225;tica de mudan&#231;as na CMED</strong> &mdash; Novos medicamentos, pre&#231;os alterados, produtos removidos. Cada mudan&#231;a identificada, categorizada e quantificada. O reajuste anual de mar&#231;o&ndash;abril 2025, que afetou mais de 25 mil medicamentos de uma vez, foi detectado e documentado automaticamente.</li>
+      <li><strong>Hist&#243;rico de pre&#231;os com 341 mil registros</strong> &mdash; Evolu&#231;&#227;o de pre&#231;o de qualquer medicamento ao longo de 13 meses. Busca por nome, princ&#237;pio ativo, laborat&#243;rio.</li>
+      <li><strong>Contexto regulat&#243;rio cruzado</strong> &mdash; Para qualquer medicamento na CMED: status de registro ANVISA, hist&#243;rico de decis&#245;es CONITEC, procedimentos SIGTAP associados. Tudo num &#250;nico ponto.</li>
+      <li><strong>Painel interativo com 8 abas</strong> &mdash; Ecossistema, pre&#231;os CMED, registros ANVISA, decis&#245;es CONITEC, procedimentos SIGTAP, qualidade de dados, atlas e sobre. Dashboard funcional rodando localmente para demonstra&#231;&#245;es.</li>
+      <li><strong>Valida&#231;&#227;o CAP/PMVG</strong> &mdash; Verifica&#231;&#227;o autom&#225;tica da f&#243;rmula regulat&#243;ria (PMVG = PF &#215; 0,7847) para os 27 mil medicamentos da tabela.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== 19 FONTES ====== -->
+  <section class="section page-break-before">
+    <h2 class="section-header">O Ecossistema: 19 fontes governamentais mapeadas</h2>
+
+    <p>A plataforma catalogou e classificou todas as fontes de dados governamentais relevantes para intelig&#234;ncia farmac&#234;utica no Brasil. Cada fonte foi avaliada por formato, acessibilidade, frequ&#234;ncia de atualiza&#231;&#227;o e valor estrat&#233;gico. Quatro est&#227;o operacionais hoje; as demais t&#234;m perfis t&#233;cnicos completos e est&#227;o priorizadas para integra&#231;&#227;o futura.</p>
+
+    <div class="data-table-wrapper">
+      <table class="source-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Fonte</th>
+            <th>&#211;rg&#227;o</th>
+            <th>O que cont&#233;m</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>Tabela de Pre&#231;os CMED</strong></td>
+            <td>ANVISA/CMED</td>
+            <td>Pre&#231;os m&#225;ximos de medicamentos (PF, PMC, PMVG) &mdash; 27.155 itens, 13 meses de hist&#243;rico</td>
+            <td><span class="badge badge-active">ATIVO</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Portal de Dados Abertos ANVISA</strong></td>
+            <td>ANVISA</td>
+            <td>Registros de medicamentos autorizados &mdash; 37.391 registros, join 99,9% com CMED</td>
+            <td><span class="badge badge-active">ATIVO</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>CONITEC &mdash; Decis&#245;es e Demandas</strong></td>
+            <td>Minist&#233;rio da Sa&#250;de</td>
+            <td>Incorpora&#231;&#245;es ao SUS, recomenda&#231;&#245;es HTA &mdash; 1.133 decis&#245;es (2012&ndash;2025)</td>
+            <td><span class="badge badge-active">ATIVO</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>SIGTAP &mdash; Tabela SUS</strong></td>
+            <td>DataSUS/MS</td>
+            <td>Procedimentos, grupos e valores do SUS &mdash; 4.977 procedimentos com hierarquia</td>
+            <td><span class="badge badge-active">ATIVO</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>DOU (Di&#225;rio Oficial)</strong></td>
+            <td>Imprensa Nacional</td>
+            <td>Todas as publica&#231;&#245;es regulat&#243;rias federais &mdash; base legal de todas as mudan&#231;as CMED</td>
+            <td><span class="badge badge-integration">PLANEJADO</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>Registro de Medicamentos ANVISA</strong></td>
+            <td>ANVISA</td>
+            <td>Aprova&#231;&#245;es, renova&#231;&#245;es, cancelamentos &mdash; complementa os dados abertos com hist&#243;rico</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>DataSUS / SIH</strong></td>
+            <td>DataSUS</td>
+            <td>Interna&#231;&#245;es hospitalares (AIH) &mdash; base para estudos de impacto or&#231;ament&#225;rio</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>DataSUS / SIM</strong></td>
+            <td>DataSUS</td>
+            <td>Registros de mortalidade</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>DataSUS / SIA</strong></td>
+            <td>DataSUS</td>
+            <td>Procedimentos ambulatoriais &mdash; volume e custo de uso real do SIGTAP</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>DataSUS / SINAN</strong></td>
+            <td>DataSUS</td>
+            <td>Notifica&#231;&#245;es de doen&#231;as</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><strong>CNES</strong></td>
+            <td>DataSUS</td>
+            <td>Cadastro de estabelecimentos de sa&#250;de</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><strong>ANS &mdash; Benefici&#225;rios</strong></td>
+            <td>ANS</td>
+            <td>Dados de planos de sa&#250;de privados</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><strong>ANS &mdash; TUSS</strong></td>
+            <td>ANS</td>
+            <td>C&#243;digos de procedimentos para faturamento</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><strong>RENAME</strong></td>
+            <td>MS/CONITEC</td>
+            <td>Lista de medicamentos essenciais do SUS</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><strong>ReBEC</strong></td>
+            <td>MS/Fiocruz</td>
+            <td>Registro brasileiro de ensaios cl&#237;nicos</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td><strong>Portaria 344</strong></td>
+            <td>ANVISA</td>
+            <td>Listas de subst&#226;ncias controladas</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td><strong>SNGPC</strong></td>
+            <td>ANVISA</td>
+            <td>Dados de dispensa&#231;&#227;o de controlados</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td><strong>Receita Federal / CNPJ</strong></td>
+            <td>Receita Federal</td>
+            <td>Cadastro de empresas (fabricantes farmac&#234;uticos)</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td><strong>IBGE &mdash; Pesquisas de Sa&#250;de</strong></td>
+            <td>IBGE</td>
+            <td>PNS, PNAD &mdash; dados populacionais de sa&#250;de</td>
+            <td><span class="badge badge-mapped">MAPEADO</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Classifica&#231;&#227;o por est&#225;gio de integra&#231;&#227;o:</strong></p>
+
+    <ul class="tier-list">
+      <li><strong>Operacional (4 fontes):</strong> CMED, ANVISA Dados Abertos, CONITEC, SIGTAP. Pipelines automatizados, dados em Parquet, integra&#231;&#227;o entre bases comprovada com taxas de cobertura medidas.</li>
+      <li><strong>Pr&#243;xima integra&#231;&#227;o (planejado):</strong> DOU &mdash; API aberta com acesso program&#225;tico completo. Adiciona a dimens&#227;o da base legal: por que cada mudan&#231;a aconteceu.</li>
+      <li><strong>Mapeadas para integra&#231;&#227;o futura:</strong> DataSUS (SIH, SIA, SINAN), CNES, RENAME, Receita Federal. Perfis t&#233;cnicos completos, caminhos de jun&#231;&#227;o identificados, priorizados por valor estrat&#233;gico.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== PROXIMOS PASSOS ====== -->
+  <section class="section">
+    <h2 class="section-header">Pr&#243;ximos passos</h2>
+
+    <h3 class="subsection-header">Pr&#243;xima fonte: DOU (Di&#225;rio Oficial da Uni&#227;o)</h3>
+    <p>A quinta fonte a ser integrada &#233; o Di&#225;rio Oficial &mdash; o ponto de converg&#234;ncia de toda atividade regulat&#243;ria federal. Com o DOU integrado, a plataforma passa a responder n&#227;o apenas <strong>o que mudou</strong> e <strong>qual o impacto</strong>, mas <strong>por que mudou e qual a base legal</strong>. A conex&#227;o mais direta: toda mudan&#231;a na tabela CMED tem uma resolu&#231;&#227;o no DOU que a fundamenta.</p>
+
+    <ul>
+      <li>API aberta (INLABS) com acesso program&#225;tico completo &mdash; sem scraping</li>
+      <li>Monitoramento di&#225;rio de publica&#231;&#245;es relevantes ao setor farmac&#234;utico</li>
+      <li>Vincula&#231;&#227;o autom&#225;tica entre resolu&#231;&#245;es do DOU e mudan&#231;as na tabela CMED</li>
+    </ul>
+
+    <h3 class="subsection-header">Plataforma web (Track B)</h3>
+    <p>O prot&#243;tipo atual (Streamlit, rodando localmente) cumpre seu papel: demonstrar o conceito, validar os dados, testar as integra&#231;&#245;es. A pr&#243;xima etapa &mdash; <strong>a ser decidida ap&#243;s valida&#231;&#227;o com parceiros</strong> &mdash; &#233; uma aplica&#231;&#227;o web real: hospedada, multi-usu&#225;rio, com autentica&#231;&#227;o, entrega via API e painel acess&#237;vel sem instala&#231;&#227;o. Os pipelines de dados (todos os quatro monitores, a l&#243;gica de integra&#231;&#227;o, os modelos de dados) s&#227;o permanentes e migram diretamente para essa arquitetura. A interface Streamlit &#233; descart&#225;vel por design.</p>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== PARA QUEM ====== -->
+  <section class="section">
+    <h2 class="section-header">Para quem</h2>
+
+    <div class="data-table-wrapper">
+      <table class="persona-table">
+        <thead>
+          <tr>
+            <th>Perfil</th>
+            <th>Valor entregue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Assuntos Regulat&#243;rios</strong></td>
+            <td>Alertas autom&#225;ticos de mudan&#231;as de pre&#231;o CMED, acompanhamento de status de registro ANVISA, base legal via DOU (planejado)</td>
+          </tr>
+          <tr>
+            <td><strong>HTA e Acesso ao Mercado</strong></td>
+            <td>Monitoramento de decis&#245;es CONITEC com contexto de pre&#231;o CMED, procedimentos SIGTAP associados, dados para submiss&#245;es de incorpora&#231;&#227;o</td>
+          </tr>
+          <tr>
+            <td><strong>Intelig&#234;ncia de Mercado</strong></td>
+            <td>Tend&#234;ncias de pre&#231;o por classe terap&#234;utica e laborat&#243;rio, novos registros ANVISA, movimenta&#231;&#245;es na tabela CMED ao longo de 13 meses</td>
+          </tr>
+          <tr>
+            <td><strong>Farmacoeconomia</strong></td>
+            <td>Dados CONITEC e SIGTAP estruturados para estudos de custo-efetividade, cruzados com pre&#231;os CMED e &mdash; futuramente &mdash; com volume real do DataSUS</td>
+          </tr>
+          <tr>
+            <td><strong>Compliance</strong></td>
+            <td>Rastreamento de mudan&#231;as regulat&#243;rias com audit trail versionado, alertas de novos eventos na CMED, ANVISA e CONITEC</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== POR QUE AGORA ====== -->
+  <section class="section">
+    <h2 class="section-header">Por que agora</h2>
+
+    <ul class="problem-list">
+      <li>O governo brasileiro est&#225; <strong>expandindo sua infraestrutura de dados abertos</strong> &mdash; mais fontes ficam acess&#237;veis a cada ano. ANVISA, CONITEC e SIGTAP disponibilizaram dados estruturados que antes exigiam scraping ou acesso manual.</li>
+      <li><strong>IA e automa&#231;&#227;o</strong> tornaram vi&#225;vel o que antes era imposs&#237;vel manualmente: monitorar quatro fontes simultaneamente, cruzar mais de 27 mil medicamentos entre bases, detectar mudan&#231;as e gerar alertas &mdash; em segundos.</li>
+      <li><strong>Nenhuma solu&#231;&#227;o existente conecta essas fontes</strong> de forma integrada para o setor farmac&#234;utico brasileiro. Existem consultorias que fazem relat&#243;rios pontuais. N&#227;o existe uma plataforma com dados vivos, versionados e cruzados.</li>
+      <li>O reajuste anual de pre&#231;os CMED (mais de 25 mil medicamentos afetados de uma vez, mar&#231;o&ndash;abril 2025) &#233; apenas um exemplo de evento que <strong>deveria gerar um alerta autom&#225;tico</strong>, mas hoje exige trabalho manual de equipes inteiras. A plataforma detectou e documentou esse evento automaticamente.</li>
+      <li>A <strong>janela de vantagem existe agora</strong>. Quem constr&#243;i o entendimento profundo dessas fontes hoje &mdash; os caminhos de jun&#231;&#227;o, as limita&#231;&#245;es reais, os padr&#245;es de mudan&#231;a &mdash; cria um ativo que leva meses a replicar.</li>
+      <li>A abordagem foi <strong>metodol&#243;gica, n&#227;o intuitiva</strong>. A pesquisa de base &mdash; cat&#225;logo de fontes, an&#225;lise de dossi&#234;s, engenharia reversa do ecossistema &mdash; precedeu o desenvolvimento. Cada decis&#227;o de arquitetura &#233; fundamentada em dados, n&#227;o em suposi&#231;&#245;es.</li>
+    </ul>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ====== SOBRE NOS ====== -->
+  <section class="section">
+    <h2 class="section-header">Sobre n&#243;s</h2>
+
+    <p>Liderado por um profissional de <strong>governan&#231;a de dados e qualidade de dados</strong> (em certifica&#231;&#227;o CDMP &mdash; Certified Data Management Professional), o projeto combina expertise em data governance, analytics e design de experimentos com capacidade t&#233;cnica em automa&#231;&#227;o e intelig&#234;ncia artificial.</p>
+
+    <p>O diferencial n&#227;o &#233; apenas t&#233;cnico. &#201; metodol&#243;gico. Antes de construir qualquer pipeline, investimos em pesquisa sistem&#225;tica: 19 fontes catalogadas, 5 dossi&#234;s reais dissecados, mapa de relacionamentos verificado empiricamente. Essa base permite construir r&#225;pido porque as decis&#245;es de arquitetura s&#227;o informadas, n&#227;o intuitivas.</p>
+
+    <p>Em poucas semanas, constru&#237;mos quatro pipelines de dados operacionais, 13 meses de hist&#243;rico CMED, integra&#231;&#227;o entre bases com taxas de cobertura de 85% a 99,9%, e um painel funcional com dados reais. Entender os dados &mdash; seus formatos, suas anomalias, suas conex&#245;es, suas mudan&#231;as de esquema ao longo do tempo &mdash; &#233; o que transforma informa&#231;&#227;o p&#250;blica em intelig&#234;ncia privada. Esse entendimento &#233; o ativo.</p>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="page-footer">
+    <p>Dados atualizados em fevereiro de 2026. Plataforma em fase de valida&#231;&#227;o com parceiros. Fontes operacionais: CMED, ANVISA, CONITEC, SIGTAP. DOU e plataforma web: planejados.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
