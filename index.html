@@ -74,6 +74,8 @@
     padding-top: 8px;
   }
 
+  /* --- Enhancement 5: Section numbering (REMOVED per review) --- */
+
   .subsection-header {
     font-size: 1rem;
     font-weight: 600;
@@ -147,6 +149,19 @@
     margin-bottom: 24px;
   }
 
+  /* --- Enhancement 3: Layer card color differentiation --- */
+  .layer-card--monitorar {
+    border-left-color: #374E55;
+  }
+
+  .layer-card--entender {
+    border-left-color: #6B9DAB;
+  }
+
+  .layer-card--agir {
+    border-left-color: #A08E78;
+  }
+
   .layer-card .subsection-header {
     margin-bottom: 12px;
   }
@@ -173,39 +188,77 @@
     font-size: 0.9rem;
     font-weight: 600;
     color: #2B3A3F;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
+  /* --- Enhancement 4: Chain flow pill/node rendering --- */
   .chain-item .chain-flow {
     font-size: 0.85rem;
     color: #374E55;
-    line-height: 1.6;
-    padding-left: 4px;
+    line-height: 1.8;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .chain-flow .node {
+    display: inline-block;
+    background: #F7F7F5;
+    border: 1px solid #E8E6E1;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .chain-flow .node--planned {
+    border-style: dashed;
+    border-color: #CFCDC8;
+    color: #80796B;
   }
 
   .chain-flow .arrow {
     color: #80796B;
-    margin: 0 4px;
+    margin: 0 2px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
   }
 
-  .chain-flow .node {
-    display: inline;
+  /* === Layer 3 containment: surfaces are children of Agir === */
+  .layer-agir-group {
+    background: #F7F7F5;
+    border: 1px solid #E8E6E1;
+    border-left: 4px solid #A08E78;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
   }
 
-  /* === Surface Cards (Sandbox + Atlas, side by side) === */
+  .layer-agir-group .subsection-header {
+    margin-bottom: 12px;
+  }
+
+  .layer-agir-group > p {
+    margin-bottom: 16px;
+  }
+
+  /* === Surface Cards (nested inside Layer 3 group) === */
   .surfaces-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
   .surface-card {
     background: #FFFFFF;
     border: 1px solid #E8E6E1;
-    border-top: 4px solid #374E55;
+    border-top: 3px solid #A08E78;
     border-radius: 8px;
-    padding: 24px;
+    padding: 20px;
   }
 
   .surface-card .subsection-header {
@@ -409,6 +462,13 @@
     color: #2B3A3F;
   }
 
+  /* --- Enhancement 1: Coverage bars in integration table --- */
+  .coverage-cell {
+    position: relative;
+  }
+
+  /* Coverage bars removed per review — percentages not shown externally */
+
   /* === Persona Table === */
   .persona-table th:first-child,
   .persona-table td:first-child {
@@ -433,6 +493,18 @@
     position: absolute;
     left: 0;
     color: #80796B;
+  }
+
+  /* --- Enhancement 2: Source connection diagram (SVG) --- */
+  .diagram-wrapper {
+    max-width: 800px;
+    margin: 24px auto;
+  }
+
+  .diagram-wrapper svg {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* === Footer === */
@@ -552,6 +624,20 @@
       font-size: 8pt;
     }
 
+    /* Print: simplify SVG diagram */
+    .diagram-wrapper {
+      page-break-inside: avoid;
+    }
+
+    /* Print: coverage bars (removed) */
+
+    /* Print: chain flow pills */
+    .chain-flow .node,
+    .chain-flow .node--planned {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
     /* Avoid widows/orphans */
     p, li {
       orphans: 3;
@@ -582,6 +668,20 @@
     .source-table td:nth-child(4) {
       max-width: 160px;
     }
+
+    /* Responsive: chain flows stack vertically */
+    .chain-flow {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 2px !important;
+    }
+
+    .chain-flow .arrow {
+      transform: rotate(90deg);
+      margin: 0 0 0 16px;
+    }
+
+    /* Responsive: SVG diagram scales naturally via viewBox */
   }
 </style>
 </head>
@@ -626,7 +726,7 @@
     <p>O valor n&#227;o est&#225; em acessar uma &#250;nica fonte. Est&#225; nas <strong>rela&#231;&#245;es entre as fontes</strong> &mdash; as cadeias de intelig&#234;ncia que nenhuma fonte sozinha oferece e que nenhuma equipe consegue manter manualmente.</p>
 
     <!-- Camada 1 -->
-    <div class="layer-card">
+    <div class="layer-card layer-card--monitorar">
       <h3 class="subsection-header">Camada 1 &mdash; Monitorar <span style="font-size:0.8rem;font-weight:400;color:#2E7D4A;">[FUNCIONA HOJE]</span></h3>
       <p>Acompanhamento automatizado de quatro fontes governamentais operacionais. A plataforma detecta mudan&#231;as em pre&#231;os, novos registros de medicamentos, decis&#245;es de incorpora&#231;&#227;o ao SUS e atualiza&#231;&#245;es de procedimentos &mdash; e gera alertas em tempo &#250;til, n&#227;o dias depois.</p>
       <p>Cada fonte segue o mesmo pipeline padronizado: download, normaliza&#231;&#227;o, armazenamento versionado, compara&#231;&#227;o entre vers&#245;es e alertas. Quando a CMED publica uma nova tabela de pre&#231;os, a plataforma identifica automaticamente cada medicamento novo, cada pre&#231;o alterado e cada produto removido. O mesmo para ANVISA, CONITEC e SIGTAP.</p>
@@ -634,57 +734,55 @@
     </div>
 
     <!-- Camada 2 -->
-    <div class="layer-card">
+    <div class="layer-card layer-card--entender">
       <h3 class="subsection-header">Camada 2 &mdash; Entender <span style="font-size:0.8rem;font-weight:400;color:#2E7D4A;">[RESOLU&#199;&#195;O DE ENTIDADES FUNCIONA HOJE]</span></h3>
       <p>O diferencial da plataforma: <strong>cruzar, correlacionar e contextualizar</strong> dados de m&#250;ltiplas fontes. Isso n&#227;o &#233; planejado &mdash; est&#225; funcionando. Mapeamos os caminhos de jun&#231;&#227;o entre todas as quatro bases operacionais e medimos a cobertura real.</p>
       <p>A integra&#231;&#227;o entre fontes j&#225; produz resultados concretos:</p>
       <ul>
-        <li><strong>CMED &#8596; ANVISA:</strong> 99,9% de cobertura (27.122 de 27.155 medicamentos) por chave direta de registro</li>
-        <li><strong>CONITEC &#8594; CMED:</strong> 85,0% de cobertura (599 de 705 decis&#245;es sobre medicamentos) por correspond&#234;ncia de subst&#226;ncia ativa</li>
-        <li><strong>SIGTAP &#8594; CMED:</strong> 93,1% de cobertura (375 de 403 procedimentos de medicamentos) por correspond&#234;ncia de subst&#226;ncia ativa</li>
+        <li><strong>CMED &#8596; ANVISA:</strong> Correspond&#234;ncia direta por chave de registro &mdash; cada medicamento da tabela CMED vinculado ao seu registro ANVISA com status, empresa detentora e dados complementares</li>
+        <li><strong>CONITEC &#8594; CMED:</strong> Resolu&#231;&#227;o de entidades por subst&#226;ncia ativa &mdash; decis&#245;es de incorpora&#231;&#227;o ao SUS vinculadas automaticamente aos medicamentos na tabela de pre&#231;os</li>
+        <li><strong>SIGTAP &#8594; CMED:</strong> Resolu&#231;&#227;o de entidades por subst&#226;ncia ativa &mdash; procedimentos SUS vinculados aos medicamentos correspondentes, conectando pre&#231;o de refer&#234;ncia ao valor de ressarcimento</li>
       </ul>
-      <p>Quando um medicamento aparece numa decis&#227;o CONITEC, sabemos imediatamente seu pre&#231;o atual na tabela CMED, seu status de registro na ANVISA e se h&#225; procedimento SIGTAP associado. N&#227;o &#233; uma estimativa &mdash; &#233; um join com taxa de acerto mensur&#225;vel.</p>
+      <p>Quando um medicamento aparece numa decis&#227;o CONITEC, sabemos imediatamente seu pre&#231;o atual na tabela CMED, seu status de registro na ANVISA e se h&#225; procedimento SIGTAP associado. Essas conex&#245;es s&#227;o autom&#225;ticas, verificadas e reproduz&#237;veis.</p>
       <p>Essa capacidade se aprofunda em <strong>quatro cadeias de intelig&#234;ncia</strong> &mdash; as tr&#234;s primeiras j&#225; parcialmente operacionais, a quarta planejada para integra&#231;&#227;o futura com DataSUS:</p>
 
       <div class="chain-group">
         <div class="chain-item">
           <div class="chain-title">Cadeia 1 &mdash; Ciclo de vida do medicamento</div>
           <div class="chain-flow">
-            <span class="node">ANVISA (registro)</span><span class="arrow">&rarr;</span><span class="node">CMED (pre&#231;o)</span><span class="arrow">&rarr;</span><span class="node">CONITEC (incorpora&#231;&#227;o SUS)</span><span class="arrow">&rarr;</span><span class="node">SIGTAP (procedimento)</span><span class="arrow">&rarr;</span><span class="node">DOU (base legal) [planejado]</span>
+            <span class="node">ANVISA (registro)</span><span class="arrow">&#8594;</span><span class="node">CMED (pre&#231;o)</span><span class="arrow">&#8594;</span><span class="node">CONITEC (incorpora&#231;&#227;o SUS)</span><span class="arrow">&#8594;</span><span class="node">SIGTAP (procedimento)</span><span class="arrow">&#8594;</span><span class="node node--planned">DOU (base legal) [planejado]</span>
           </div>
         </div>
 
         <div class="chain-item">
           <div class="chain-title">Cadeia 2 &mdash; Intelig&#234;ncia de pre&#231;os</div>
           <div class="chain-flow">
-            <span class="node">Mudan&#231;a na CMED</span><span class="arrow">&rarr;</span><span class="node">Verifica&#231;&#227;o ANVISA (registro ativo?)</span><span class="arrow">&rarr;</span><span class="node">Hist&#243;rico CONITEC (incorporado ao SUS?)</span><span class="arrow">&rarr;</span><span class="node">Base legal no DOU [planejado]</span>
+            <span class="node">Mudan&#231;a na CMED</span><span class="arrow">&#8594;</span><span class="node">Verifica&#231;&#227;o ANVISA (registro ativo?)</span><span class="arrow">&#8594;</span><span class="node">Hist&#243;rico CONITEC (incorporado ao SUS?)</span><span class="arrow">&#8594;</span><span class="node node--planned">Base legal no DOU [planejado]</span>
           </div>
         </div>
 
         <div class="chain-item">
           <div class="chain-title">Cadeia 3 &mdash; Risco regulat&#243;rio</div>
           <div class="chain-flow">
-            <span class="node">Decis&#227;o CONITEC publicada</span><span class="arrow">&rarr;</span><span class="node">Impacto em pre&#231;os CMED</span><span class="arrow">&rarr;</span><span class="node">Atualiza&#231;&#227;o SIGTAP esperada</span><span class="arrow">&rarr;</span><span class="node">Alerta para equipes de acesso</span>
+            <span class="node">Decis&#227;o CONITEC publicada</span><span class="arrow">&#8594;</span><span class="node">Impacto em pre&#231;os CMED</span><span class="arrow">&#8594;</span><span class="node">Atualiza&#231;&#227;o SIGTAP esperada</span><span class="arrow">&#8594;</span><span class="node">Alerta para equipes de acesso</span>
           </div>
         </div>
 
         <div class="chain-item">
           <div class="chain-title">Cadeia 4 &mdash; Evid&#234;ncia de mundo real [planejado]</div>
           <div class="chain-flow">
-            <span class="node">DataSUS (dados brutos)</span><span class="arrow">&rarr;</span><span class="node">Limpeza e estrutura&#231;&#227;o</span><span class="arrow">&rarr;</span><span class="node">Cruzamento com CMED + SIGTAP + CNES</span><span class="arrow">&rarr;</span><span class="node">Datasets prontos para HTA</span>
+            <span class="node node--planned">DataSUS (dados brutos)</span><span class="arrow">&#8594;</span><span class="node node--planned">Limpeza e estrutura&#231;&#227;o</span><span class="arrow">&#8594;</span><span class="node node--planned">Cruzamento com CMED + SIGTAP + CNES</span><span class="arrow">&#8594;</span><span class="node node--planned">Datasets prontos para HTA</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Camada 3 -->
-    <div class="layer-card">
+    <!-- Camada 3: single containment group with surfaces nested inside -->
+    <div class="layer-agir-group">
       <h3 class="subsection-header">Camada 3 &mdash; Agir <span style="font-size:0.8rem;font-weight:400;color:#8B6914;">[PROT&#211;TIPO EM DESENVOLVIMENTO]</span></h3>
       <p>A entrega ao cliente acontece em <strong>duas superf&#237;cies integradas:</strong></p>
-    </div>
 
-    <!-- Two surfaces side by side -->
-    <div class="surfaces-grid">
+      <div class="surfaces-grid">
       <div class="surface-card">
         <h3 class="subsection-header">Sandbox de Pesquisa</h3>
         <p>Ambiente interativo para explorar e combinar datasets de m&#250;ltiplas fontes. O conceito &#233; uma <strong>tela visual de dados</strong>: cada fonte aparece como um card com seus campos, e o usu&#225;rio conecta os cards para construir o dataset combinado que precisa &mdash; sem escrever c&#243;digo, sem entender o esquema interno de cada base.</p>
@@ -703,7 +801,7 @@
         <ul>
           <li>Dicion&#225;rio campo a campo (tipo, descri&#231;&#227;o, valores poss&#237;veis, exemplos reais)</li>
           <li>Scorecard de qualidade por fonte (completude, acur&#225;cia, cobertura temporal)</li>
-          <li>Mapa de relacionamentos: quais campos conectam quais bases e com qual taxa de cobertura</li>
+          <li>Mapa de relacionamentos: quais campos conectam quais bases e por qual m&#233;todo</li>
           <li>Linhagem de dados (origem, transforma&#231;&#245;es aplicadas, vers&#227;o do pipeline)</li>
           <li>Limita&#231;&#245;es conhecidas e lacunas documentadas honestamente</li>
           <li>Hist&#243;rico de mudan&#231;as de esquema (colunas adicionadas, removidas, renomeadas)</li>
@@ -712,11 +810,12 @@
       </div>
     </div>
 
-    <!-- Workbench Principle Callout -->
-    <div class="callout-box">
-      <span class="callout-label">Princ&#237;pio da bancada de trabalho</span>
-      <p>A plataforma entrega todos os insumos necess&#225;rios para a decis&#227;o, mas n&#227;o faz a decis&#227;o. <strong>Dados limpos at&#233; a porta.</strong> O que acontece depois &#233; dom&#237;nio do especialista.</p>
-    </div>
+      <!-- Workbench Principle Callout (inside Layer 3 group) -->
+      <div class="callout-box" style="margin: 16px 0 0 0; max-width: none;">
+        <span class="callout-label">Princ&#237;pio da bancada de trabalho</span>
+        <p>A plataforma entrega todos os insumos necess&#225;rios para a decis&#227;o, mas n&#227;o faz a decis&#227;o. <strong>Dados limpos at&#233; a porta.</strong> O que acontece depois &#233; dom&#237;nio do especialista.</p>
+      </div>
+    </div><!-- end layer-agir-group -->
   </section>
 
   <hr class="section-divider">
@@ -756,36 +855,85 @@
 
     <h3 class="subsection-header">Integra&#231;&#227;o entre fontes</h3>
 
-    <p>Esta &#233; a parte que distingue a plataforma de um simples agregador de dados. As taxas de cobertura abaixo foram medidas com dados reais &mdash; n&#227;o s&#227;o estimativas.</p>
+    <p>Esta &#233; a parte que distingue a plataforma de um simples agregador de dados. Os caminhos de integra&#231;&#227;o abaixo foram constru&#237;dos e verificados com dados reais.</p>
+
+    <!-- Enhancement 2: Source connection diagram (SVG) -->
+    <div class="diagram-wrapper">
+      <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de conex&#227;o entre fontes de dados: CMED no centro conectado a ANVISA, CONITEC e SIGTAP">
+        <!-- Connection lines (drawn first, behind nodes) -->
+        <!-- CMED to ANVISA -->
+        <line x1="320" y1="200" x2="140" y2="80" stroke="#374E55" stroke-opacity="0.30" stroke-width="1.5"/>
+        <!-- CMED to CONITEC -->
+        <line x1="480" y1="200" x2="660" y2="80" stroke="#374E55" stroke-opacity="0.30" stroke-width="1.5"/>
+        <!-- CMED to SIGTAP -->
+        <line x1="400" y1="260" x2="400" y2="340" stroke="#374E55" stroke-opacity="0.30" stroke-width="1.5"/>
+
+        <!-- Node: ANVISA (top-left) -->
+        <rect x="40" y="40" width="200" height="68" rx="8" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <rect x="40" y="40" width="200" height="3" rx="1.5" fill="#374E55"/>
+        <text x="140" y="72" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#2B3A3F" text-anchor="middle">ANVISA</text>
+        <text x="140" y="92" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#80796B" text-anchor="middle">37.391 registros</text>
+
+        <!-- Node: CONITEC (top-right) -->
+        <rect x="560" y="40" width="200" height="68" rx="8" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <rect x="560" y="40" width="200" height="3" rx="1.5" fill="#374E55"/>
+        <text x="660" y="72" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#2B3A3F" text-anchor="middle">CONITEC</text>
+        <text x="660" y="92" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#80796B" text-anchor="middle">1.133 decis&#245;es</text>
+
+        <!-- Node: CMED (center, larger — the hub) -->
+        <rect x="300" y="190" width="200" height="72" rx="8" fill="#FFFFFF" stroke="#374E55" stroke-width="1.5"/>
+        <rect x="300" y="190" width="200" height="3" rx="1.5" fill="#374E55"/>
+        <text x="400" y="224" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#2B3A3F" text-anchor="middle">CMED</text>
+        <text x="400" y="246" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#80796B" text-anchor="middle">27.155 medicamentos</text>
+
+        <!-- Node: SIGTAP (bottom-center) -->
+        <rect x="300" y="340" width="200" height="68" rx="8" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <rect x="300" y="340" width="200" height="3" rx="1.5" fill="#374E55"/>
+        <text x="400" y="372" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#2B3A3F" text-anchor="middle">SIGTAP</text>
+        <text x="400" y="392" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#80796B" text-anchor="middle">4.977 procedimentos</text>
+
+        <!-- Method labels — positioned along lines, clear of nodes -->
+        <!-- CMED-ANVISA label -->
+        <rect x="160" y="130" width="120" height="22" rx="11" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <text x="220" y="145" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#80796B" text-anchor="middle">chave de registro</text>
+
+        <!-- CMED-CONITEC label -->
+        <rect x="520" y="130" width="120" height="22" rx="11" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <text x="580" y="145" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#80796B" text-anchor="middle">subst&#226;ncia ativa</text>
+
+        <!-- CMED-SIGTAP label -->
+        <rect x="420" y="296" width="120" height="22" rx="11" fill="#FFFFFF" stroke="#E8E6E1" stroke-width="1"/>
+        <text x="480" y="311" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="500" fill="#80796B" text-anchor="middle">subst&#226;ncia ativa</text>
+
+        <!-- Figure caption -->
+        <text x="400" y="440" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="400" fill="#80796B" text-anchor="middle">Caminhos de integra&#231;&#227;o verificados com dados reais &#8212; fevereiro 2026</text>
+      </svg>
+    </div>
 
     <div class="data-table-wrapper">
       <table class="metrics-table">
         <thead>
           <tr>
             <th>Conex&#227;o entre fontes</th>
-            <th>M&#233;todo de jun&#231;&#227;o</th>
-            <th>Registros correspondidos</th>
-            <th>Cobertura</th>
+            <th>M&#233;todo de integra&#231;&#227;o</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>CMED &#8596; ANVISA Dados Abertos</td>
             <td>Chave direta de registro</td>
-            <td>27.122 de 27.155</td>
-            <td><strong>99,9%</strong></td>
+            <td><span class="badge badge-active">CONFIRMADA</span></td>
           </tr>
           <tr>
             <td>CONITEC &#8594; CMED</td>
-            <td>Nome da subst&#226;ncia ativa</td>
-            <td>599 de 705 decis&#245;es</td>
-            <td><strong>85,0%</strong></td>
+            <td>Resolu&#231;&#227;o de entidades por subst&#226;ncia ativa</td>
+            <td><span class="badge badge-active">CONFIRMADA</span></td>
           </tr>
           <tr>
             <td>SIGTAP &#8594; CMED</td>
-            <td>Nome da subst&#226;ncia ativa</td>
-            <td>375 de 403 procedimentos</td>
-            <td><strong>93,1%</strong></td>
+            <td>Resolu&#231;&#227;o de entidades por subst&#226;ncia ativa</td>
+            <td><span class="badge badge-active">CONFIRMADA</span></td>
           </tr>
         </tbody>
       </table>
@@ -832,7 +980,7 @@
             <td>2</td>
             <td><strong>Portal de Dados Abertos ANVISA</strong></td>
             <td>ANVISA</td>
-            <td>Registros de medicamentos autorizados &mdash; 37.391 registros, join 99,9% com CMED</td>
+            <td>Registros de medicamentos autorizados &mdash; 37.391 registros, integrado com CMED por chave de registro</td>
             <td><span class="badge badge-active">ATIVO</span></td>
           </tr>
           <tr>
@@ -1049,7 +1197,7 @@
 
     <p>Combinamos experi&#234;ncia em <strong>governan&#231;a de dados, qualidade de dados e analytics</strong> com capacidade t&#233;cnica em automa&#231;&#227;o e intelig&#234;ncia artificial. Nosso diferencial n&#227;o &#233; apenas t&#233;cnico &mdash; &#233; a compreens&#227;o profunda de como dados governamentais brasileiros s&#227;o estruturados, suas limita&#231;&#245;es e seus pontos de conex&#227;o.</p>
 
-    <p>Em poucas semanas, constru&#237;mos quatro pipelines de dados operacionais, 13 meses de hist&#243;rico CMED, integra&#231;&#227;o entre bases com taxas de cobertura de 85% a 99,9%, e um painel funcional com 4 abas orientadas por a&#231;&#227;o e dados reais. Isso &#233; poss&#237;vel porque entendemos os dados antes de escrever a primeira linha de c&#243;digo.</p>
+    <p>Em poucas semanas, constru&#237;mos quatro pipelines de dados operacionais, 13 meses de hist&#243;rico CMED, integra&#231;&#227;o confirmada entre as quatro bases, e um painel funcional com 4 abas orientadas por a&#231;&#227;o e dados reais. Isso &#233; poss&#237;vel porque entendemos os dados antes de escrever a primeira linha de c&#243;digo.</p>
 
     <p>Entender os dados &mdash; seus formatos, suas anomalias, suas chaves de jun&#231;&#227;o, suas mudan&#231;as de esquema ao longo do tempo &mdash; &#233; o que transforma informa&#231;&#227;o p&#250;blica em intelig&#234;ncia privada. Esse entendimento &#233; o ativo.</p>
   </section>
